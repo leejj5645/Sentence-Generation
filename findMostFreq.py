@@ -1,8 +1,8 @@
 import loadNgram as lng
 import operator
 
-def find_most_Nfreq(text_list, n):
-    ngram = lng.texttodic(text_list, n, 5)
+def find_most_Nfreq(ngram, n):
+
     sortedNgram = sorted(ngram.items(), key=operator.itemgetter(1),reverse=True)
 
     return sortedNgram
@@ -17,6 +17,3 @@ if (__name__ == "__main__"):
         file = f.read()
         sample_file = ''.join(file)
         sentence = sample_file.replace('(', '').replace(')', '').replace("'",'').replace(",", '').replace('"','')
-
-    topN_output = find_most_Nfreq(sentence, n_gram)
-    print(topN_output)
